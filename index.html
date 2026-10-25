@@ -1,0 +1,1038 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Deloitte Human Capital Mock Case: Summit Valley Health</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@75..100,500..800&family=IBM+Plex+Mono:wght@400;500;600&family=Source+Sans+3:ital,wght@0,400;0,600;0,700;1,400&display=swap">
+<style>
+/* Layout: one reading column (max 820px) under a sticky step rail. Every step runs the same loop:
+   interviewer prompt -> your move -> reveal a strong answer. Exhibits sit inside the column like workpapers. */
+:root{
+  --bg:#f2f5f6; --surface:#ffffff; --surface-2:#e8eef0; --fg:#13202a; --fg-2:#44525d; --muted:#6c7a84; --line:#d4dce0;
+  --accent:#0d6b61; --accent-ink:#0a5a51; --accent-soft:#dbeeea; --on-accent:#ffffff;
+  --s1:#2a78d6; --s2:#eb6834; --grid:#e2e8ea; --axis:#b6c1c7;
+  --good:#0ca30c; --good-ink:#006300; --crit:#d03b3b; --crit-ink:#ad2828;
+  --h1:#e6f0fc; --h2:#b7d3f6; --h3:#6da7ec; --h4:#2a78d6; --h5:#104281;
+  --dot:#eb6834; --dot-ink:#111111; --tip-bg:#13202a; --tip-fg:#ffffff;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --body:"Source Sans 3",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+  --r:10px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0d1215; --surface:#151c20; --surface-2:#1b252a; --fg:#e5ecef; --fg-2:#a8b4bb; --muted:#7c8992; --line:#29343a;
+    --accent:#4cc2b1; --accent-ink:#72d4c6; --accent-soft:#11302c; --on-accent:#06201c;
+    --s1:#3987e5; --s2:#d95926; --grid:#222c32; --axis:#3a464d;
+    --good:#0ca30c; --good-ink:#3dc43d; --crit:#d03b3b; --crit-ink:#ff8484;
+    --h1:#1a2531; --h2:#1c3c63; --h3:#22599b; --h4:#3987e5; --h5:#86b6ef;
+    --dot:#f07a45; --dot-ink:#111111; --tip-bg:#e5ecef; --tip-fg:#0d1215;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0d1215; --surface:#151c20; --surface-2:#1b252a; --fg:#e5ecef; --fg-2:#a8b4bb; --muted:#7c8992; --line:#29343a;
+  --accent:#4cc2b1; --accent-ink:#72d4c6; --accent-soft:#11302c; --on-accent:#06201c;
+  --s1:#3987e5; --s2:#d95926; --grid:#222c32; --axis:#3a464d;
+  --good:#0ca30c; --good-ink:#3dc43d; --crit:#d03b3b; --crit-ink:#ff8484;
+  --h1:#1a2531; --h2:#1c3c63; --h3:#22599b; --h4:#3987e5; --h5:#86b6ef;
+  --dot:#f07a45; --dot-ink:#111111; --tip-bg:#e5ecef; --tip-fg:#0d1215;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font:17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:820px;margin:0 auto;padding-inline:20px}
+h1,h2,h3{font-family:var(--display);font-stretch:86%;text-wrap:balance;margin:0;letter-spacing:-.01em}
+p{margin:0 0 .8em}
+a{color:var(--accent-ink)}
+b,strong{font-weight:700}
+.eyebrow,.lbl,.who{font:500 11px/1.4 var(--mono);letter-spacing:.09em;text-transform:uppercase}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px;border-radius:4px}
+.tnum{font-variant-numeric:tabular-nums}
+
+/* rail */
+.rail{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--bg);border-bottom:1px solid var(--line)}
+.rail-in{max-width:820px;margin:0 auto;padding:8px 20px;display:flex;gap:10px;align-items:center}
+.chips{display:flex;gap:4px;overflow-x:auto;flex:1;min-width:0;scrollbar-width:none;padding-block:2px}
+.chips::-webkit-scrollbar{display:none}
+.chips a{font:500 12px var(--mono);padding:5px 9px;border-radius:999px;color:var(--fg-2);white-space:nowrap;text-decoration:none}
+.chips a:hover{background:var(--surface-2)}
+.chips a.on{background:var(--fg);color:var(--bg)}
+.speed{display:flex;align-items:center;gap:6px;font:500 11px var(--mono);color:var(--muted);flex:none}
+.speed select{font:500 12px var(--mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:3px 4px}
+
+/* hero */
+.hero{padding-block:56px 40px}
+.hero .eyebrow{color:var(--accent-ink);margin-bottom:14px}
+.hero h1{font-size:clamp(40px,8vw,64px);line-height:1;font-weight:800;font-stretch:80%}
+.lede{font-size:21px;line-height:1.5;color:var(--fg-2);max-width:36em;margin-top:18px}
+.how{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.how li{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;font-size:15px;line-height:1.4;counter-increment:how}
+.how li::before{content:counter(how);display:block;font:600 12px var(--mono);color:var(--accent-ink);margin-bottom:4px}
+.hero-actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+
+/* steps */
+.step{padding-block:52px;border-top:1px solid var(--line);scroll-margin-top:56px}
+.sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.idx{font:600 13px var(--mono);color:var(--accent-ink)}
+.sh h2{font-size:clamp(26px,4.4vw,32px);line-height:1.15;font-weight:750}
+.sh .listen{margin-left:auto}
+.sub{color:var(--fg-2);margin-top:8px;max-width:40em}
+
+.btn{font:600 14px/1.2 var(--body);border-radius:8px;padding:9px 14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:7px;text-decoration:none}
+.btn:hover{border-color:var(--muted)}
+.btn.primary{background:var(--accent);color:var(--on-accent);border-color:var(--accent)}
+.btn.primary:hover{filter:brightness(1.07)}
+.btn.small{font-size:13px;padding:6px 10px}
+.btn[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.btn svg{width:14px;height:14px;fill:currentColor;flex:none}
+
+.iv{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;margin-top:22px}
+.who{color:var(--muted);margin-bottom:8px}
+.iv p{font-size:19px;line-height:1.55}
+.iv p:last-child{margin-bottom:0}
+
+.move{display:flex;gap:12px 16px;align-items:center;flex-wrap:wrap;margin-top:18px;padding-block:14px;border-top:1px dashed var(--line);border-bottom:1px dashed var(--line)}
+.move .lbl{color:var(--accent-ink);flex:none}
+.move p{margin:0;flex:1 1 260px;min-width:0;font-weight:600}
+.move .acts{display:flex;gap:8px;flex-wrap:wrap}
+
+.ans{background:var(--accent-soft);border-radius:var(--r);padding:20px 22px;margin-top:14px}
+.ans .who{color:var(--accent-ink)}
+.ans h3{font-size:19px;margin:18px 0 8px;font-weight:700}
+.ans h3:first-of-type{margin-top:4px}
+.ans ul{margin:0 0 .6em;padding-left:1.2em}
+.ans li{margin-bottom:.35em}
+.script{font-size:18px;line-height:1.6}
+.script p{margin-bottom:.7em}
+.note{font-size:15px;color:var(--fg-2)}
+
+/* facts strip */
+.facts{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:16px}
+.facts div{background:var(--surface);padding:12px 14px;min-width:0}
+.facts .k{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.facts .v{font:700 22px/1.2 var(--display);font-stretch:86%;margin-top:4px}
+.facts .d{font-size:13px;color:var(--fg-2);line-height:1.35;margin-top:2px}
+
+/* primer */
+.def{font:600 clamp(21px,3.4vw,26px)/1.35 var(--display);font-stretch:92%;margin-top:22px;max-width:30em}
+.split{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:22px}
+.panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;min-width:0}
+.panel h3{font-size:19px;font-weight:700}
+.panel .tag{font:500 11px var(--mono);color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin:2px 0 8px}
+.panel ul{margin:0;padding-left:1.1em;font-size:16px}
+.panel li{margin-bottom:.3em}
+.cycle{list-style:none;padding:0;margin:14px 0 0;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px}
+.cycle li{position:relative;background:var(--surface-2);border-radius:8px;padding:12px 12px 10px;min-width:0}
+.cycle li b{display:block;font:700 17px var(--display);font-stretch:88%}
+.cycle li span{font-size:14px;color:var(--fg-2);line-height:1.35;display:block;margin-top:2px}
+.cycle li:not(:last-child)::after{content:"";position:absolute;right:-17px;top:50%;width:12px;height:12px;border-top:2px solid var(--muted);border-right:2px solid var(--muted);transform:translateY(-50%) rotate(45deg)}
+.cycle-note{font:500 12px var(--mono);color:var(--muted);margin-top:10px}
+.vocab{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:16px}
+.term{background:var(--surface);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-width:0}
+.term b{display:block;font:700 16px var(--display);font-stretch:90%;margin-bottom:3px}
+.term p{margin:0;font-size:15px;line-height:1.45;color:var(--fg-2)}
+.h-sec{font:500 11px var(--mono);letter-spacing:.09em;text-transform:uppercase;color:var(--muted);margin-top:30px}
+
+/* qa list */
+.qa{list-style:none;padding:0;margin:0;display:grid;gap:10px}
+.qa li{background:var(--surface);border-radius:8px;padding:12px 14px}
+.qa .q{font-weight:700}
+.qa .a{color:var(--fg-2);margin-top:2px}
+.qa .a::before{content:"Interviewer: ";font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+/* framework tree */
+.tree{margin-top:6px}
+.root{background:var(--fg);color:var(--bg);border-radius:8px;padding:12px 16px;font:700 18px/1.3 var(--display);font-stretch:90%;text-align:center;position:relative}
+.root::after{content:"";position:absolute;left:50%;bottom:-16px;width:2px;height:16px;background:var(--muted)}
+.branches{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-top:16px;padding-top:14px;border-top:2px solid var(--muted)}
+.branch{background:var(--surface);border-radius:8px;padding:12px 13px;min-width:0}
+.branch .n{font:600 12px var(--mono);color:var(--accent-ink)}
+.branch b{display:block;font:700 16px/1.25 var(--display);font-stretch:90%;margin:2px 0 6px}
+.branch ul{margin:0;padding-left:1.05em;font-size:14.5px;line-height:1.4}
+.branch li{margin-bottom:.3em}
+
+/* exhibits */
+.ex{margin:22px 0 0;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px 18px 14px}
+.ex-h{display:flex;justify-content:space-between;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+.ex-t{font:700 18px var(--display);font-stretch:88%}
+.ex-ref{font:500 12px var(--mono);color:var(--muted)}
+.ex-s{font-size:14px;color:var(--fg-2);margin-top:2px}
+.ex figcaption,.src{font:400 12px/1.45 var(--mono);color:var(--muted);margin-top:12px}
+.multiples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.mini{border:1px solid var(--grid);border-radius:8px;padding:10px 10px 4px;min-width:0}
+.mini .nm{font-weight:700;font-size:14.5px;line-height:1.25;min-height:2.5em}
+.mini .ch{font:500 12px var(--mono);color:var(--fg-2)}
+.mini svg{display:block;width:100%;height:auto;margin-top:4px}
+.tblwrap{overflow-x:auto;margin-top:12px}
+table{border-collapse:collapse;width:100%;font-size:14.5px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--grid);white-space:nowrap}
+th{font:500 11px var(--mono);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+
+.hbar{margin-top:16px}
+.hrow{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:4px 14px;align-items:center;padding-block:9px;border-bottom:1px solid var(--grid)}
+.hrow:last-of-type{border-bottom:0}
+.hlab b{display:block;font-size:15px;line-height:1.3}
+.hlab span{font-size:13px;color:var(--fg-2);line-height:1.3;display:block}
+.track{position:relative;height:26px}
+.bar{position:absolute;left:0;top:5px;height:16px;border-radius:0 4px 4px 0;background:var(--s1);min-width:2px}
+.bar.b2{background:var(--s2)}
+.bval{position:absolute;top:2px;font:600 13px var(--mono);color:var(--fg);white-space:nowrap;padding-left:6px}
+.tol{position:absolute;top:-4px;bottom:-4px;width:0;border-left:1.5px solid var(--fg-2)}
+.axis{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.5fr);gap:14px}
+.ticks{position:relative;height:18px;font:500 11px var(--mono);color:var(--muted);border-top:1px solid var(--axis)}
+.ticks span{position:absolute;top:3px;transform:translateX(-50%)}
+.ticks span:first-child{transform:none}
+.ticks span:last-child{transform:translateX(-100%)}
+.status{font:600 12px var(--mono);display:inline-flex;gap:5px;align-items:center;margin-top:3px}
+.status.bad{color:var(--crit-ink)} .status.ok{color:var(--good-ink)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:14px;color:var(--fg-2);margin-top:10px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+.tolnote{font:500 12px var(--mono);color:var(--fg-2);margin-top:8px}
+
+/* given table + calc steps */
+.given{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:16px}
+.given div{background:var(--surface);padding:11px 13px;min-width:0}
+.given .k{font-size:13px;color:var(--fg-2);line-height:1.3}
+.given .v{font:700 20px/1.2 var(--display);font-stretch:88%;margin-top:3px}
+.calc{list-style:none;padding:0;margin:0;display:grid;gap:8px}
+.calc li{background:var(--surface);border-radius:8px;padding:12px 14px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 14px;align-items:center}
+.calc .t{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted);grid-column:1/-1}
+.calc .f{font-size:16px;min-width:0}
+.calc .r{font:700 20px var(--display);font-stretch:88%;text-align:right;white-space:nowrap}
+.stepper .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chipset{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.chipset span{font:500 12px var(--mono);background:var(--surface);border-radius:6px;padding:4px 8px;color:var(--fg-2)}
+.chipset b{color:var(--fg)}
+
+/* heat map */
+.heat{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:18px;align-items:start;margin-top:12px}
+.heat svg{width:100%;height:auto;display:block}
+.heat svg text{font-family:var(--mono)}
+.reg{list-style:none;padding:0;margin:0;display:grid;gap:6px}
+.reg li{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:center;font-size:14.5px;line-height:1.3;padding-block:6px;border-bottom:1px solid var(--grid)}
+.reg .id{width:28px;height:28px;border-radius:50%;background:var(--dot);color:var(--dot-ink);font:600 11px var(--mono);display:grid;place-items:center}
+.reg .sc{font:600 13px var(--mono);color:var(--fg-2);text-align:right;white-space:nowrap}
+.ramp{display:flex;align-items:center;gap:6px;font:500 11px var(--mono);color:var(--muted);margin-top:10px}
+.ramp i{width:22px;height:10px;display:inline-block;border-radius:2px}
+
+/* roadmap */
+.road{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:8px}
+.phase{background:var(--surface);border-radius:8px;padding:12px 14px;min-width:0}
+.phase .d{font:600 12px var(--mono);color:var(--accent-ink)}
+.phase b{display:block;font:700 18px var(--display);font-stretch:88%;margin:2px 0 6px}
+.phase ul{margin:0;padding-left:1.05em;font-size:15px;line-height:1.4}
+.phase li{margin-bottom:.35em}
+.struct{display:flex;flex-wrap:wrap;gap:6px;margin:4px 0 12px}
+.struct span{font:600 12px var(--mono);padding:4px 9px;border-radius:999px;background:var(--surface);color:var(--fg)}
+
+/* drivers */
+.drivers{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:6px}
+.drivers div{background:var(--surface);border-radius:8px;padding:11px 13px;min-width:0}
+.drivers b{display:block;font:700 16px var(--display);font-stretch:90%}
+.drivers p{margin:2px 0 0;font-size:15px;color:var(--fg-2);line-height:1.45}
+.eq{font:600 15px var(--mono);background:var(--surface);border-radius:8px;padding:10px 14px;margin:6px 0 12px;overflow-x:auto}
+.drill{margin-top:34px}
+.drill h3{font-size:22px;font-weight:750}
+
+/* multiple choice */
+.mc{margin-top:20px}
+.mc-head{display:flex;gap:10px;align-items:flex-start}
+.stem{font-weight:700;font-size:18px;line-height:1.45;margin:0 0 10px;flex:1;min-width:0}
+.opts{display:grid;gap:8px}
+.opt{text-align:left;display:flex;gap:10px;align-items:flex-start;padding:11px 14px;border:1px solid var(--line);border-radius:8px;background:var(--surface);color:var(--fg);font:inherit;font-size:16px;line-height:1.45;cursor:pointer;width:100%}
+.opt:hover:not([disabled]){border-color:var(--muted)}
+.opt[disabled]{cursor:default}
+.opt .L{font:600 13px/1.6 var(--mono);color:var(--muted);flex:none}
+.opt .x{flex:1;min-width:0}
+.opt .tag{font:600 12px/1.7 var(--mono);white-space:nowrap;flex:none}
+.opt.right{border-color:var(--good);background:color-mix(in srgb,var(--good) 10%,var(--surface))}
+.opt.right .tag{color:var(--good-ink)}
+.opt.wrong{border-color:var(--crit);background:color-mix(in srgb,var(--crit) 9%,var(--surface))}
+.opt.wrong .tag{color:var(--crit-ink)}
+.why{margin-top:10px;padding:13px 16px;border-radius:8px;background:var(--surface-2);font-size:16px}
+.why p:last-child{margin-bottom:0}
+.test .mc{border-top:1px solid var(--line);padding-top:20px;margin-top:22px}
+.test .mc:first-of-type{border-top:0;padding-top:0}
+.qn{font:600 13px var(--mono);color:var(--accent-ink);display:block;margin-bottom:2px}
+.scorebar{position:sticky;top:calc(env(safe-area-inset-top,0px) + 50px);z-index:5;display:flex;gap:12px;align-items:center;flex-wrap:wrap;background:var(--bg);padding-block:10px;margin-top:14px;border-bottom:1px solid var(--line)}
+.score{font:700 22px var(--display);font-stretch:86%}
+.score small{font:500 12px var(--mono);color:var(--muted);margin-left:6px}
+.done{background:var(--accent-soft);border-radius:var(--r);padding:16px 18px;margin-top:24px}
+
+footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;color:var(--fg-2)}
+
+#tip{position:fixed;z-index:50;pointer-events:none;background:var(--tip-bg);color:var(--tip-fg);font:500 12px/1.4 var(--mono);padding:6px 9px;border-radius:6px;max-width:260px;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+
+@media (max-width:760px){
+  .branches{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .heat{grid-template-columns:minmax(0,1fr)}
+  .road{grid-template-columns:minmax(0,1fr)}
+  .multiples{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  .how{grid-template-columns:minmax(0,1fr)}
+  .split,.vocab,.drivers{grid-template-columns:minmax(0,1fr)}
+  .cycle{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cycle li:nth-child(2)::after{display:none}
+  .given{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .hrow,.axis{grid-template-columns:minmax(0,1fr)}
+  .axis>div:first-child{display:none}
+  .iv p{font-size:18px}
+  .speed span{display:none}
+}
+@media (max-width:420px){
+  .branches{grid-template-columns:minmax(0,1fr)}
+}
+@media (prefers-reduced-motion:no-preference){
+  .ans:not([hidden]),.why:not([hidden]),.calc li:not([hidden]){animation:rise .28s ease-out}
+  @keyframes rise{from{transform:translateY(4px);opacity:.4}to{transform:none;opacity:1}}
+  html{scroll-behavior:smooth}
+}
+[hidden]:not([hidden=until-found i]){display:none!important}
+/* scoring register */
+.btn[disabled]{opacity:.45;cursor:not-allowed}
+.seg{display:flex;gap:6px;flex-wrap:wrap;margin:14px 0 4px}
+.scorer li{grid-template-columns:auto minmax(0,1fr) auto}
+.scorer .nm{min-width:0}
+.pick{display:flex;gap:6px;align-items:center}
+.pick select{font:500 13px var(--mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:4px 4px;min-width:44px}
+.pick .sc{min-width:34px}
+.reg .w{display:block;font-size:13px;color:var(--fg-2);margin-top:2px;line-height:1.35}
+.reg .nm b{font-weight:600}
+.mytop{font:600 15px/1.4 var(--body);margin:12px 0 0;color:var(--fg)}
+.mapnote{font:500 12px var(--mono);color:var(--fg-2);margin:8px 0 0}
+.bar.b3{background:var(--fg-2)}
+/* voice menu */
+.voicebar{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-top:22px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
+.voicebar label{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.voicebar select{flex:1 1 220px;min-width:0;max-width:100%;font:500 13px var(--mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 6px}
+.vhint{flex-basis:100%;margin:0;font-size:14px;line-height:1.45;color:var(--fg-2)}
+@media (max-width:600px){.given>div:last-child:nth-child(odd){grid-column:1/-1}}
+@media (max-width:420px){
+  .scorer li{grid-template-columns:auto minmax(0,1fr)}
+  .scorer .pick{grid-column:2}
+}
+</style>
+<style>
+/* calculators */
+.calcbox{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;margin-top:22px}
+.calcbox h3{font-size:19px;font-weight:700;margin:0 0 4px}
+.calcbox .sub{margin-top:2px;font-size:15px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:10px 14px;margin-top:12px}
+.cgrid label{display:flex;flex-direction:column;gap:4px;font-size:14px;line-height:1.3;color:var(--fg-2);min-width:0}
+.cgrid input,.cgrid select{font:500 15px var(--mono);background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:7px 8px;width:100%;min-width:0}
+.cout{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-top:14px}
+.cout div{background:var(--surface-2);border-radius:8px;padding:10px 12px;min-width:0}
+.cout .k{font:500 11px var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.cout .v{font:700 22px/1.2 var(--display);font-stretch:86%;margin-top:3px}
+.cnote{font-size:15px;line-height:1.5;color:var(--fg-2);margin:12px 0 0}
+.cbtns{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.gb{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:14px}
+.gb .ans{margin-top:0}
+@media (max-width:600px){.gb{grid-template-columns:minmax(0,1fr)}}
+.reps{display:grid;gap:12px;margin-top:14px}
+.rep{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.rep .rq{font-weight:700;font-size:17px;margin:0 0 8px}
+.rep .acts{display:flex;gap:8px;flex-wrap:wrap}
+.rep .ans{margin-top:12px}
+.tw th,.tw td{white-space:normal}
+@media (max-width:600px){.tw th,.tw td{padding:6px 5px;font-size:13.5px}.tw th{font-size:10px}}
+</style>
+
+<nav class="rail" aria-label="Case steps">
+  <div class="rail-in">
+    <div class="chips" id="chips">
+      <a href="#primer">Primer</a><a href="#prompt">Prompt</a><a href="#clarify">Clarify</a><a href="#framework">Framework</a><a href="#ex1">Exhibit 1</a><a href="#ex2">Exhibit 2</a><a href="#sizing">Options</a><a href="#prioritize">Priorities</a><a href="#recommend">Recommend</a><a href="#drills">Drills</a><a href="#test">Test</a>
+    </div>
+    <label class="speed" for="rate"><span>Speed</span>
+      <select id="rate" aria-label="Read-aloud speed">
+        <option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option>
+      </select>
+    </label>
+  </div>
+</nav>
+
+<main>
+<header class="hero wrap">
+  <p class="eyebrow">Deloitte Human Capital style · workforce · about 30 minutes</p>
+  <h1>Summit Valley Health</h1>
+  <p class="lede" data-say>A four-hospital system is losing nurses fast. Turnover has jumped from 14 to 22 percent in two years, and agency nurse bills are soaring. The chief people officer has 5 million dollars a year to fix it. Where should it go?</p>
+  <ol class="how">
+    <li><b>Listen or read</b> the interviewer's prompt. Every step has a Listen button.</li>
+    <li><b>Answer out loud</b> before you reveal anything. Use the timers.</li>
+    <li><b>Compare</b> with the strong answer, then move to the next step.</li>
+  </ol>
+  <div class="hero-actions">
+    <a class="btn primary" href="#prompt">Start the case</a>
+    <a class="btn" href="#primer">2-minute Human Capital primer first</a>
+    <a class="btn" href="#sizing">Jump to the options math</a>
+  </div>
+  <div class="voicebar">
+    <label for="voicePick">Read-aloud voice</label>
+    <select id="voicePick"></select>
+    <button class="btn small" type="button" id="voiceTest">Try it</button>
+    <p class="vhint">Sounds robotic? Pick a voice marked "natural." For the most human voices, open this page in Microsoft Edge, which includes free natural voices. On a Mac, you can also download a Premium voice in System Settings › Accessibility › Spoken Content › System voice › Manage Voices.</p>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- 01 PRIMER -->
+<section class="step" id="primer">
+  <div class="sh"><span class="idx">01</span><h2>Human Capital in two minutes</h2><button class="btn small listen" type="button">Listen</button></div>
+  <p class="def" data-say>Human Capital consultants work on the people side of a business: how a workforce is organized, paid, trained, and kept. Typical projects are workforce planning, HR transformation, organization design, and change management.</p>
+  <p class="sub" data-say>People cases still run on numbers. The trick is turning a soft problem, like "nurses are unhappy," into a cost, a cause, and a plan you can measure.</p>
+  <div class="split">
+    <div class="panel">
+      <h3>How a people case flows</h3>
+      <p class="tag">The four moves</p>
+      <ul data-say>
+        <li>Size the problem in dollars, so leaders know what it's worth to fix.</li>
+        <li>Find who is leaving and why. Averages hide the real story.</li>
+        <li>Compare fixes on cost per person kept, not just total cost.</li>
+        <li>Plan the change: managers, timing, and how you'll track it.</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h3>What this page adds</h3>
+      <p class="tag">Practice tools</p>
+      <ul data-say>
+        <li>Turnover math step by step.</li>
+        <li>A retention program calculator.</li>
+        <li>A priority scorer, people math drills, and a test.</li>
+      </ul>
+    </div>
+  </div>
+  <p class="h-sec">Ten terms to drop naturally</p>
+  <div class="vocab">
+    <div class="term" data-say><b>Turnover rate</b><p>People who left in a year divided by average headcount.</p></div>
+    <div class="term" data-say><b>Voluntary turnover</b><p>People who chose to leave, as opposed to being let go. It's the part you can influence.</p></div>
+    <div class="term" data-say><b>Replacement cost</b><p>What it costs to replace one person: recruiting, training, covering the gap, and lost productivity.</p></div>
+    <div class="term" data-say><b>Tenure</b><p>How long someone has worked there. Turnover usually runs highest in the first year.</p></div>
+    <div class="term" data-say><b>Residency program</b><p>A structured first year for new nurses, with a mentor and extra training.</p></div>
+    <div class="term" data-say><b>Agency nurse</b><p>A temporary nurse from a staffing agency, often at about twice the hourly cost of a staff nurse.</p></div>
+    <div class="term" data-say><b>Engagement</b><p>How committed and motivated employees feel. Low engagement often comes before people quit.</p></div>
+    <div class="term" data-say><b>Stay interview</b><p>Asking current staff what keeps them and what might make them leave, before they do.</p></div>
+    <div class="term" data-say><b>Span of control</b><p>How many people report to one manager. Too many, and nobody gets coached.</p></div>
+    <div class="term" data-say><b>Change management</b><p>The work of getting people to adopt a new way of working, so the plan sticks.</p></div>
+  </div>
+</section>
+
+<!-- 02 PROMPT -->
+<section class="step" id="prompt">
+  <div class="sh"><span class="idx">02</span><h2>The case prompt</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>Summit Valley Health runs four hospitals with about 2,000 registered nurses. Two years ago, 14 percent of its nurses left each year. Now it's 22 percent, and spending on agency nurses to cover open shifts has tripled.</p>
+    <p data-say>The chief people officer wants to bring turnover below 16 percent next year. She can spend up to 5 million dollars a year. She asks: why are our nurses leaving, and where should we put the money?</p>
+  </div>
+  <div class="facts">
+    <div><div class="k">Nurses</div><div class="v">2,000</div><div class="d">Across 4 hospitals</div></div>
+    <div><div class="k">Turnover</div><div class="v">14% → 22%</div><div class="d">In two years</div></div>
+    <div><div class="k">Goal</div><div class="v">&lt;16%</div><div class="d">Next year</div></div>
+    <div><div class="k">Budget</div><div class="v">$5M</div><div class="d">A year</div></div>
+  </div>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Restate the question in one sentence before you do anything else.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="20">20s timer</button><button class="btn primary small reveal" type="button" aria-controls="a-prompt" aria-expanded="false">Show a strong answer</button></div>
+  </div>
+  <div class="ans" id="a-prompt" hidden>
+    <p class="who">Strong answer</p>
+    <div class="script"><p data-say>"So Summit Valley wants to understand why nurse turnover rose from 14 to 22 percent, and pick the programs that get it below 16 percent next year for no more than 5 million dollars a year. Is that right?"</p></div>
+    <p class="note" data-say>Interviewer: "Yes." Repeating the target and the budget sets the two tests every option has to pass.</p>
+  </div>
+</section>
+
+<!-- 03 CLARIFY -->
+<section class="step" id="clarify">
+  <div class="sh"><span class="idx">03</span><h2>Clarifying questions</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Ask two or three clarifying questions. Pick ones whose answers would change your recommendation.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="60">60s timer</button><button class="btn primary small reveal" type="button" aria-controls="a-clarify" aria-expanded="false">Show strong questions</button></div>
+  </div>
+  <div class="ans" id="a-clarify" hidden>
+    <p class="who">Strong questions, with the interviewer's answers</p>
+    <ul class="qa">
+      <li data-say><div class="q">What does it cost when one nurse leaves?</div><div class="a">About 50 thousand dollars: 8 thousand to recruit, 12 thousand for orientation, 25 thousand for agency nurses covering the open shifts, and 5 thousand of lost productivity.</div></li>
+      <li data-say><div class="q">Is our pay competitive with nearby hospitals?</div><div class="a">Yes, within about 2 percent of the local market for most roles.</div></li>
+      <li data-say><div class="q">Is turnover the same across all four hospitals?</div><div class="a">Roughly. The bigger differences are by how long nurses have been here.</div></li>
+      <li data-say><div class="q">Are the nurses unionized?</div><div class="a">No, but any change to schedules needs nurse input to work.</div></li>
+    </ul>
+    <p class="note" style="margin-top:12px" data-say>The pay question matters most. If pay is close to market, a big raise is unlikely to be the best fix, and the interviewer just pointed you to tenure.</p>
+  </div>
+</section>
+
+<!-- 04 FRAMEWORK -->
+<section class="step" id="framework">
+  <div class="sh"><span class="idx">04</span><h2>Build the framework</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>How would you structure this?</p>
+  </div>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Take 60 seconds. Size it, find who and why, compare fixes, then plan the change.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="60">60s timer</button><button class="btn primary small reveal" type="button" aria-controls="a-frame" aria-expanded="false">Show a strong framework</button></div>
+  </div>
+  <div class="ans" id="a-frame" hidden>
+    <p class="who">Strong framework</p>
+    <div class="tree">
+      <div class="root">How should Summit Valley spend $5M a year to bring turnover below 16%?</div>
+      <div class="branches">
+        <div class="branch"><span class="n">1</span><b>Size it</b><ul><li>Exits a year</li><li>Cost per exit</li><li>Cost vs. two years ago</li></ul></div>
+        <div class="branch"><span class="n">2</span><b>Who and why</b><ul><li>By tenure and unit</li><li>Exit interview reasons</li><li>Pay vs. market</li></ul></div>
+        <div class="branch"><span class="n">3</span><b>Fixes</b><ul><li>Cost per year</li><li>Exits avoided</li><li>Cost per nurse kept</li></ul></div>
+        <div class="branch"><span class="n">4</span><b>Make it stick</b><ul><li>Nurse managers</li><li>Rollout timing</li><li>Tracking by unit</li></ul></div>
+      </div>
+    </div>
+    <h3>Say it like this</h3>
+    <div class="script"><p data-say>"I'd take four steps. First, size it: how many nurses leave each year and what each exit costs, so we know what the problem is worth. Second, find who is leaving and why, by tenure, unit, and exit reason, and check pay against the market. Third, compare fixes on cost per nurse kept, against the 5 million budget and the 16 percent target. Fourth, plan how to make it stick, because nurse managers will deliver most of this. I'd start with the size of the problem."</p></div>
+    <h3>Why it works</h3>
+    <ul data-say>
+      <li>It puts a dollar value on a people problem first.</li>
+      <li>It asks who and why before jumping to fixes like a raise.</li>
+      <li>"Cost per nurse kept" is a simple way to compare very different programs.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- 05 EXHIBIT 1 -->
+<section class="step" id="ex1">
+  <div class="sh"><span class="idx">05</span><h2>Exhibit 1: who is leaving</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>Here's last year's turnover by how long nurses had been at Summit Valley. Using about 50 thousand dollars per exit, what is turnover costing, and what do you notice?</p>
+  </div>
+  <figure class="ex">
+    <div class="ex-h"><span class="ex-t">Yearly turnover by tenure</span><span class="ex-ref">Exhibit 1 · Last year · 440 exits</span></div>
+    <div class="hbar" id="tenure"></div>
+    <figcaption>The system average is 22%. Nurses with under 3 years are 45% of staff. Source: case data.</figcaption>
+  </figure>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Total the exits, put a dollar value on them, and compare with two years ago. Then find where the exits are concentrated.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="90">90s timer</button></div>
+  </div>
+  <div class="stepper" style="margin-top:14px">
+    <ol class="calc">
+      <li class="st" hidden data-say="Step 1. Exits. 22 percent of 2,000 nurses is 440 a year."><span class="t">1 · Exits a year</span><span class="f">22% × 2,000</span><span class="r tnum">440</span></li>
+      <li class="st" hidden data-say="Step 2. Cost. 440 exits times 50 thousand dollars is 22 million dollars a year."><span class="t">2 · Cost of turnover</span><span class="f">440 × $50K</span><span class="r tnum">$22M</span></li>
+      <li class="st" hidden data-say="Step 3. Two years ago. 14 percent is 280 exits, or 14 million dollars."><span class="t">3 · Two years ago</span><span class="f">14% × 2,000 = 280 × $50K</span><span class="r tnum">$14M</span></li>
+      <li class="st" hidden data-say="Step 4. The extra cost is 8 million dollars a year. A handy rule: each point of turnover is 20 nurses, or about 1 million dollars."><span class="t">4 · Extra cost</span><span class="f">$22M − $14M · 1 point ≈ 20 nurses ≈ $1M</span><span class="r tnum">$8M</span></li>
+      <li class="st" hidden data-say="Step 5. Where. Nurses under 3 years are 900 of 2,000, 45 percent of staff, but 330 of the 440 exits, 75 percent."><span class="t">5 · Where exits happen</span><span class="f">Under 3 years: 45% of staff, 330 of 440 exits</span><span class="r tnum">75%</span></li>
+      <li class="st" hidden data-say="Step 6. So what. This is mostly a new-nurse problem. Half of first-year nurses leave. Fixes should target the first three years."><span class="t">6 · So what</span><span class="f">Half of first-year nurses leave. Target the first 3 years.</span><span class="r tnum">✓</span></li>
+    </ol>
+    <div class="row"><button class="btn primary small next" type="button">Reveal step 1 of 6</button><button class="btn small reset" type="button">Start over</button></div>
+  </div>
+  <div class="mc" data-answer="1">
+    <div class="mc-head"><p class="stem" data-say>Quick check: getting from 22 percent to the 16 percent goal means keeping how many more nurses a year?</p></div>
+    <div class="opts">
+      <button class="opt" type="button" data-say>60</button>
+      <button class="opt" type="button" data-say>120</button>
+      <button class="opt" type="button" data-say>160</button>
+      <button class="opt" type="button" data-say>320</button>
+    </div>
+    <div class="why" hidden><p data-say>6 points times 20 nurses a point is 120 nurses, worth about 6 million dollars a year. That's the bar the programs need to clear.</p></div>
+  </div>
+</section>
+
+<!-- 06 EXHIBIT 2 -->
+<section class="step" id="ex2">
+  <div class="sh"><span class="idx">06</span><h2>Exhibit 2: why they leave</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>HR coded the main reason given in each exit interview. The CFO says: "Just give everyone a raise." How do you respond?</p>
+  </div>
+  <figure class="ex">
+    <div class="ex-h"><span class="ex-t">Main reason for leaving</span><span class="ex-ref">Exhibit 2 · Share of 440 exits</span></div>
+    <div class="hbar" id="why"></div>
+    <figcaption>First-year nurses gave "unprepared or unsupported" more than any other group. Source: case data.</figcaption>
+  </figure>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Turn the shares into nurses. Then say what a raise can and can't fix.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="60">60s timer</button><button class="btn primary small reveal" type="button" aria-controls="a-why" aria-expanded="false">Show a strong answer</button></div>
+  </div>
+  <div class="ans" id="a-why" hidden>
+    <p class="who">Strong answer</p>
+    <div class="script">
+      <p data-say>"Pay is the main reason for about 88 nurses, 20 percent of exits. And our pay is within 2 percent of market. So even a raise that won most of them back keeps maybe 60 nurses, and we need 120."</p>
+      <p data-say>"Eighty percent of exits are about how the job feels: 154 nurses on schedules and workload, 110 who felt unprepared, and 66 who left a manager. Those point to fixes for new nurses, schedules, and managers."</p>
+    </div>
+    <p class="note" style="margin-top:12px" data-say>Push back on a client politely with their own data. Don't say the raise is wrong. Say what it can and can't reach.</p>
+  </div>
+</section>
+
+<!-- 07 OPTIONS -->
+<section class="step" id="sizing">
+  <div class="sh"><span class="idx">07</span><h2>Compare the five programs</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>The team has costed five programs and estimated how many exits each would prevent next year. Which would you fund within the 5 million dollar budget?</p>
+  </div>
+  <div class="tblwrap card" style="margin-top:14px">
+    <table class="tw">
+      <thead><tr><th>Program</th><th class="n">Cost a year</th><th class="n">Exits avoided</th></tr></thead>
+      <tbody>
+        <tr><td>5% raise for all nurses</td><td class="n">$9.0M</td><td class="n">60</td></tr>
+        <tr><td>New-nurse residency: mentor and training in year 1</td><td class="n">$2.0M</td><td class="n">66</td></tr>
+        <tr><td>Flexible scheduling: self-scheduling, shift options</td><td class="n">$1.5M</td><td class="n">40</td></tr>
+        <tr><td>Nurse manager leadership training</td><td class="n">$1.0M</td><td class="n">22</td></tr>
+        <tr><td>$3K retention bonus for 1–3 year nurses</td><td class="n">$1.5M</td><td class="n">26</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="src">Estimates from the team's benchmarks. Assume each avoided exit saves $50K and the programs don't overlap.</p>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>For each program, find savings, net value, and cost per nurse kept. Then build the best package under 5 million.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="120">2 min timer</button><button class="btn small reveal" type="button" aria-controls="h-opt" aria-expanded="false">Show hint</button></div>
+  </div>
+  <div class="ans" id="h-opt" hidden>
+    <p class="who">Hint: cost per nurse kept</p>
+    <p data-say>Divide each program's cost by the exits it avoids. If it's below 50 thousand dollars, the program pays for itself, because each exit avoided saves 50 thousand.</p>
+  </div>
+  <div class="stepper" style="margin-top:14px">
+    <ol class="calc">
+      <li class="st" hidden data-say="Step 1. The raise. 60 exits avoided saves 3 million, against a 9 million cost. Net minus 6 million. That's 150 thousand dollars per nurse kept."><span class="t">1 · 5% raise</span><span class="f">60 × $50K = $3M vs. $9M · $150K per nurse kept</span><span class="r tnum">−$6.0M</span></li>
+      <li class="st" hidden data-say="Step 2. Residency. 66 exits avoided saves 3.3 million, against 2 million. Net plus 1.3 million, about 30 thousand per nurse kept."><span class="t">2 · Residency</span><span class="f">66 × $50K = $3.3M vs. $2M · $30K per nurse kept</span><span class="r tnum">+$1.3M</span></li>
+      <li class="st" hidden data-say="Step 3. Flexible scheduling. 40 exits saves 2 million, against 1.5. Net plus half a million, 37.5 thousand per nurse kept."><span class="t">3 · Scheduling</span><span class="f">40 × $50K = $2M vs. $1.5M · $37.5K per nurse kept</span><span class="r tnum">+$0.5M</span></li>
+      <li class="st" hidden data-say="Step 4. Manager training. 22 exits saves 1.1 million, against 1 million. Net plus 0.1 million, about 45 thousand per nurse kept."><span class="t">4 · Manager training</span><span class="f">22 × $50K = $1.1M vs. $1M · $45K per nurse kept</span><span class="r tnum">+$0.1M</span></li>
+      <li class="st" hidden data-say="Step 5. Retention bonus. 26 exits saves 1.3 million, against 1.5. Net minus 0.2 million, about 58 thousand per nurse kept."><span class="t">5 · Retention bonus</span><span class="f">26 × $50K = $1.3M vs. $1.5M · $58K per nurse kept</span><span class="r tnum">−$0.2M</span></li>
+      <li class="st" hidden data-say="Step 6. The package. Residency, scheduling, and manager training cost 4.5 million, keep 128 nurses, and save 6.4 million. Net plus 1.9 million."><span class="t">6 · Best package</span><span class="f">Residency + scheduling + training: $4.5M, 128 kept, $6.4M saved</span><span class="r tnum">+$1.9M</span></li>
+      <li class="st" hidden data-say="Step 7. Does it hit the goal? 440 minus 128 is 312 exits, out of 2,000. That's 15.6 percent, below the 16 percent target, with half a million to spare."><span class="t">7 · Check the goal</span><span class="f">(440 − 128) ÷ 2,000</span><span class="r tnum">15.6%</span></li>
+    </ol>
+    <div class="row"><button class="btn primary small next" type="button">Reveal step 1 of 7</button><button class="btn small reset" type="button">Start over</button></div>
+  </div>
+  <figure class="ex">
+    <div class="ex-h"><span class="ex-t">Cost per nurse kept</span><span class="ex-ref">Exhibit 3 · $ thousands</span></div>
+    <div class="hbar" id="cpk"></div>
+    <figcaption>Each exit costs about $50K. Programs under $50K per nurse kept pay for themselves.</figcaption>
+  </figure>
+  <div class="calcbox">
+    <h3>Retention program calculator</h3>
+    <p class="sub">Starts with the recommended package. Add or drop programs, or cut savings for overlap between them.</p>
+    <div class="cgrid">
+      <label for="rc-raise">5% raise ($9M, 60 kept)<select id="rc-raise"><option value="1">Include</option><option value="0" selected>Skip</option></select></label>
+      <label for="rc-res">Residency ($2M, 66 kept)<select id="rc-res"><option value="1" selected>Include</option><option value="0">Skip</option></select></label>
+      <label for="rc-flex">Scheduling ($1.5M, 40 kept)<select id="rc-flex"><option value="1" selected>Include</option><option value="0">Skip</option></select></label>
+      <label for="rc-lead">Manager training ($1M, 22 kept)<select id="rc-lead"><option value="1" selected>Include</option><option value="0">Skip</option></select></label>
+      <label for="rc-bonus">Retention bonus ($1.5M, 26 kept)<select id="rc-bonus"><option value="1">Include</option><option value="0" selected>Skip</option></select></label>
+      <label for="rc-cost">Cost per exit ($)<input id="rc-cost" type="number" min="0" step="5000" value="50000"></label>
+      <label for="rc-ovl">Overlap cut to exits kept (%)<input id="rc-ovl" type="number" min="0" max="100" step="5" value="0"></label>
+    </div>
+    <div class="cout">
+      <div><div class="k">Cost a year</div><div class="v" id="rc-c">–</div></div>
+      <div><div class="k">Nurses kept</div><div class="v" id="rc-k">–</div></div>
+      <div><div class="k">Net savings</div><div class="v" id="rc-n">–</div></div>
+      <div><div class="k">New turnover</div><div class="v" id="rc-t">–</div></div>
+    </div>
+    <p class="cnote" id="rc-note" aria-live="polite"></p>
+    <div class="cbtns"><button class="btn small" type="button" id="rc-reset">Reset to the recommended package</button></div>
+  </div>
+</section>
+
+<!-- 08 PRIORITIES -->
+<section class="step" id="prioritize">
+  <div class="sh"><span class="idx">08</span><h2>Score the programs</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>Money isn't the only test. Score each of these six ideas on ease and impact. Which three would you launch first?</p>
+  </div>
+  <figure class="ex">
+    <div class="ex-h"><span class="ex-t">Priority map: ease × impact</span><span class="ex-ref">Exhibit 4 · Retention ideas</span></div>
+    <div class="seg" role="group" aria-label="Which scores to plot">
+      <button class="btn small" type="button" id="mMine" aria-pressed="true">Your scores</button>
+      <button class="btn small" type="button" id="mTeam" aria-pressed="false" disabled>Team's scores</button>
+    </div>
+    <div class="heat">
+      <div>
+        <div id="heatmap"></div>
+        <p class="mapnote" id="mapnote">Your dots appear here as you score each idea.</p>
+      </div>
+      <div>
+        <p class="mapnote" style="margin:0 0 6px">Pick E (ease) and I (impact): 1 is low, 5 is high.</p>
+        <ul class="reg scorer" id="scorer"></ul>
+        <p class="mytop" id="mytop" aria-live="polite">Score all six to see your top three.</p>
+        <div class="ramp" aria-hidden="true">Score <i style="background:var(--h1)"></i><i style="background:var(--h2)"></i><i style="background:var(--h3)"></i><i style="background:var(--h4)"></i><i style="background:var(--h5)"></i> higher</div>
+      </div>
+    </div>
+    <figcaption>Score = ease × impact. Scores are yours to set.</figcaption>
+  </figure>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Score each idea with a one-line reason, then name your top three and why.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="120">2 min timer</button><button class="btn primary small reveal" type="button" id="rv-prio" aria-controls="a-prio" aria-expanded="false">Show the team's scores</button></div>
+  </div>
+  <div class="ans" id="a-prio" hidden>
+    <p class="who">The team's scores, with reasons</p>
+    <ul class="reg" id="teamlist"></ul>
+    <h3>Say it like this</h3>
+    <div class="script"><p data-say>"First, the residency, because half of first-year nurses leave and it's the cheapest way to keep a nurse. Second, flexible scheduling, the top exit reason, piloted in a few units with nurses designing it. Third, manager training, which is cheap and makes the other two work, since managers run the schedules and coach new nurses. I'd hold the raise and the bonus: they cost more per nurse kept than an exit does."</p></div>
+  </div>
+</section>
+
+<!-- 09 RECOMMEND -->
+<section class="step" id="recommend">
+  <div class="sh"><span class="idx">09</span><h2>The recommendation</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="iv">
+    <p class="who">Interviewer</p>
+    <p data-say>The chief people officer joins the room. What's your recommendation?</p>
+  </div>
+  <div class="move">
+    <span class="lbl">Your move</span>
+    <p data-say>Lead with the answer. Then the numbers, the risk, and next steps.</p>
+    <div class="acts"><button class="btn small timer" type="button" data-secs="60">60s timer</button><button class="btn primary small reveal" type="button" aria-controls="a-rec" aria-expanded="false">Show good vs. better</button></div>
+  </div>
+  <div class="ans" id="a-rec" hidden>
+    <div class="gb">
+      <div class="ans">
+        <p class="who">Good answer</p>
+        <div class="script"><p data-say>"Fund the residency, flexible scheduling, and manager training. They cost 4.5 million and save 6.4 million a year, and turnover drops to about 15.6 percent."</p></div>
+      </div>
+      <div class="ans">
+        <p class="who">Better answer</p>
+        <div class="script">
+          <p data-say>"Spend 4.5 million on three programs aimed at the first three years, where 75 percent of exits happen: a new-nurse residency, flexible scheduling, and nurse manager training. Together they keep about 128 nurses, save about 6.4 million, and bring turnover from 22 to about 15.6 percent, below the goal."</p>
+          <p data-say>"Skip the across-the-board raise. Pay is close to market and it costs 150 thousand per nurse kept, three times what an exit costs."</p>
+          <p data-say>"The risk is that the programs overlap and keep fewer nurses than planned. The margin is thin: keep 8 fewer nurses, about 6 percent, and we land right at 16 percent. So we keep the last half million for stay interviews and a monthly turnover dashboard by unit. Next steps: start the residency with the next new-graduate group, pilot self-scheduling in three units, and train all nurse managers within six months."</p>
+        </div>
+      </div>
+    </div>
+    <p class="note" style="margin-top:12px" data-say>The good answer is right. The better answer ties the plan to the diagnosis, says no to the raise with a number, and plans for the estimates being wrong.</p>
+  </div>
+</section>
+
+<!-- 10 DRILLS -->
+<section class="step" id="drills">
+  <div class="sh"><span class="idx">10</span><h2>Bonus drills: people math</h2><button class="btn small listen" type="button">Listen</button></div>
+  <div class="drill">
+    <h3>Quick reps</h3>
+    <div class="reps">
+      <div class="rep"><p class="rq" data-say>1. A hospital has 800 nurses, and 120 left last year. What's the turnover rate?</p><div class="acts"><button class="btn primary small reveal" type="button" aria-controls="q1" aria-expanded="false">Show answer</button></div>
+        <div class="ans" id="q1" hidden><div class="script"><p data-say>"15 percent. 120 divided by 800."</p></div></div></div>
+      <div class="rep"><p class="rq" data-say>2. Turnover falls from 20 to 17 percent on 1,000 nurses, at 50 thousand dollars an exit. What's saved?</p><div class="acts"><button class="btn primary small reveal" type="button" aria-controls="q2" aria-expanded="false">Show answer</button></div>
+        <div class="ans" id="q2" hidden><div class="script"><p data-say>"1.5 million dollars. 3 points of 1,000 is 30 nurses, times 50 thousand."</p></div></div></div>
+      <div class="rep"><p class="rq" data-say>3. An agency nurse costs 120 dollars an hour and a staff nurse 55. What does covering 400 hours with agency cost extra?</p><div class="acts"><button class="btn primary small reveal" type="button" aria-controls="q3" aria-expanded="false">Show answer</button></div>
+        <div class="ans" id="q3" hidden><div class="script"><p data-say>"26 thousand dollars. 65 dollars more an hour, times 400 hours."</p></div></div></div>
+      <div class="rep"><p class="rq" data-say>4. A program costs 600 thousand dollars and keeps 15 nurses. Does it pay for itself at 50 thousand an exit?</p><div class="acts"><button class="btn primary small reveal" type="button" aria-controls="q4" aria-expanded="false">Show answer</button></div>
+        <div class="ans" id="q4" hidden><div class="script"><p data-say>"Yes, barely. That's 40 thousand per nurse kept, below 50 thousand. It saves 750 thousand against 600."</p></div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 11 TEST -->
+<section class="step test" id="test">
+  <div class="sh"><span class="idx">11</span><h2>Practice test</h2><button class="btn small listen" type="button">Listen</button></div>
+  <p class="sub" data-say>Twelve multiple-choice questions on the Summit Valley case. Pick an answer to see the explanation.</p>
+  <div class="scorebar"><span class="score" id="score">0 / 0<small>answered 0 of 12</small></span><button class="btn small" type="button" id="resetTest">Reset test</button></div>
+  <div id="testq"></div>
+  <div class="done" id="done" hidden></div>
+</section>
+
+</div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>An original practice case written in the style of Deloitte Human Capital consulting work. It isn't a Deloitte case: the health system and all figures are invented. This page isn't made by or affiliated with Deloitte.</p>
+    <p>Night-before tip: remember that each point of turnover is 20 nurses and about $1M, and compare programs on cost per nurse kept.</p>
+  </div>
+</footer>
+<div id="tip" hidden role="tooltip"></div>
+<script>
+(function(){
+  "use strict";
+  const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+  const NS="http://www.w3.org/2000/svg";
+  const svgEl=(t,a={})=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);return e;};
+  const LET="ABCD";
+
+  /* ---------- tooltip ---------- */
+  const tip=$("#tip");
+  function showTip(el,x,y){tip.textContent=el.getAttribute("data-tip");tip.hidden=false;
+    const w=tip.offsetWidth,h=tip.offsetHeight;let L=x+12,T=y-h-10;
+    if(L+w>innerWidth-8)L=x-w-12; if(T<8)T=y+14; tip.style.left=Math.max(8,L)+"px";tip.style.top=T+"px";}
+  document.addEventListener("pointermove",e=>{const t=e.target.closest&&e.target.closest("[data-tip]");if(t)showTip(t,e.clientX,e.clientY);else tip.hidden=true;});
+  document.addEventListener("focusin",e=>{const t=e.target.closest&&e.target.closest("[data-tip]");if(t){const r=t.getBoundingClientRect();showTip(t,r.left+r.width/2,r.top);}});
+  document.addEventListener("focusout",()=>{tip.hidden=true;});
+  addEventListener("scroll",()=>{tip.hidden=true;},{passive:true});
+
+  /* ---------- reveal toggles ---------- */
+  $$(".reveal").forEach(b=>{const t=document.getElementById(b.getAttribute("aria-controls"));const show=b.textContent;
+    const hide=show.startsWith("Show as")?"Hide table":"Hide";
+    b.addEventListener("click",()=>{const open=t.hidden;t.hidden=!open;b.setAttribute("aria-expanded",String(open));b.textContent=open?hide:show;});});
+
+  /* ---------- timers ---------- */
+  let actx=null;
+  function beep(){try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();const o=actx.createOscillator(),g=actx.createGain();o.frequency.value=880;g.gain.setValueAtTime(.0001,actx.currentTime);g.gain.exponentialRampToValueAtTime(.2,actx.currentTime+.02);g.gain.exponentialRampToValueAtTime(.0001,actx.currentTime+.5);o.connect(g).connect(actx.destination);o.start();o.stop(actx.currentTime+.55);}catch(e){}}
+  $$(".timer").forEach(b=>{const secs=+b.dataset.secs,label=b.textContent;let id=null,left=0;
+    const fmt=s=>Math.floor(s/60)+":"+String(s%60).padStart(2,"0");
+    b.addEventListener("click",()=>{
+      if(id){clearInterval(id);id=null;b.textContent=label;b.setAttribute("aria-pressed","false");return;}
+      try{actx=actx||new (window.AudioContext||window.webkitAudioContext)();}catch(e){}
+      left=secs;b.textContent=fmt(left)+" · stop";b.setAttribute("aria-pressed","true");
+      id=setInterval(()=>{left--;if(left<=0){clearInterval(id);id=null;b.textContent="Time. Answer now";b.setAttribute("aria-pressed","false");beep();setTimeout(()=>{if(!id)b.textContent=label;},4000);return;}b.textContent=fmt(left)+" · stop";},1000);
+    });});
+
+  /* ---------- steppers ---------- */
+  $$(".stepper").forEach(s=>{const steps=$$(".st",s),next=$(".next",s),reset=$(".reset",s);let i=0;
+    const upd=()=>{next.hidden=i>=steps.length;next.textContent="Reveal step "+(i+1)+" of "+steps.length;};
+    next.addEventListener("click",()=>{if(i<steps.length){steps[i].hidden=false;i++;upd();}});
+    reset.addEventListener("click",()=>{steps.forEach(x=>x.hidden=true);i=0;upd();});upd();});
+
+
+  /* ---------- chart builders ---------- */
+  function niceMax(m){const steps=[1,1.5,2,2.5,3,4,5,6,8,10,12,15,20,25,30,40,50,60,80,100,120,150,200,250,300,400,500,600,800,1000,1200,1500,2000];for(const s of steps)if(s>=m)return s;return Math.ceil(m/500)*500;}
+  function roundTop(x,y,w,h,r){r=Math.min(r,h,w/2);return `M${x},${y+h}V${y+r}Q${x},${y} ${x+r},${y}H${x+w-r}Q${x+w},${y} ${x+w},${y+r}V${y+h}Z`;}
+  function multiples(el,Q,SER){
+    SER.forEach(s=>{
+      const f=s.f||(v=>String(v)),n=s.v.length,last=n-1;
+      const card=document.createElement("div");card.className="mini";
+      card.innerHTML=`<div class="nm">${s.k}</div><div class="ch">${f(s.v[0])} → ${f(s.v[last])}</div>`;
+      const W=200,H=104,top=18,bot=20,pl=4,pr=4,ph=H-top-bot,band=(W-pl-pr)/n,bw=Math.min(22,band*.58),max=niceMax(Math.max(...s.v)*1.12);
+      const svg=svgEl("svg",{viewBox:`0 0 ${W} ${H}`,role:"img","aria-label":`${s.k}: ${s.v.map((v,i)=>Q[i]+" "+f(v)).join(", ")}`});
+      s.v.forEach((v,i)=>{const cx=pl+band*i+band/2,h=Math.max(1,v/max*ph),x=cx-bw/2,y=top+ph-h;
+        svg.appendChild(svgEl("path",{d:roundTop(x,y,bw,h,4),fill:"var(--s1)"}));
+        if(i===0||i===last){const edge=n>6,tx=edge?(i===0?Math.max(1,x):Math.min(W-1,x+bw)):cx,an=edge?(i===0?"start":"end"):"middle";const t=svgEl("text",{x:tx,y:y-5,"text-anchor":an,"font-size":"10.5","font-weight":"600",fill:"var(--fg-2)"});t.textContent=f(v);svg.appendChild(t);}
+        const q=svgEl("text",{x:cx,y:H-5,"text-anchor":"middle","font-size":n>5?"8.5":"9.5",fill:"var(--muted)"});q.textContent=Q[i];svg.appendChild(q);
+        svg.appendChild(svgEl("rect",{x:pl+band*i,y:0,width:band,height:H,fill:"transparent","data-tip":`${s.k} · ${Q[i]}: ${f(v)}`}));
+      });
+      svg.insertBefore(svgEl("line",{x1:0,x2:W,y1:top+ph+.5,y2:top+ph+.5,stroke:"var(--axis)","stroke-width":"1"}),svg.firstChild);
+      card.appendChild(svg);el.appendChild(card);
+    });
+  }
+  function multTable(el,Q,SER){
+    el.innerHTML=`<table><thead><tr><th>Measure</th>${Q.map(q=>`<th class="n">${q}</th>`).join("")}</tr></thead><tbody>${SER.map(s=>`<tr><td>${s.k}</td>${s.v.map(v=>`<td class="n">${(s.f||String)(v)}</td>`).join("")}</tr>`).join("")}</tbody></table>`;
+  }
+  function axis(el,o){const ax=document.createElement("div");ax.className="axis";
+    ax.innerHTML=`<div></div><div class="ticks">${o.ticks.map(v=>`<span style="left:${v/o.max*100}%">${o.tick(v)}</span>`).join("")}</div>`;el.appendChild(ax);
+    if(o.ref&&o.ref.note){const p=document.createElement("p");p.className="tolnote";p.textContent=o.ref.note;el.appendChild(p);}}
+  /* one bar per row: rows {d,t,v,lab,tip,st:{bad,txt}} */
+  function hbar(el,rows,o){
+    rows.forEach(r=>{const row=document.createElement("div");row.className="hrow";const w=r.v/o.max*100;
+      row.innerHTML=`<div class="hlab"><b>${r.d}</b>${r.t?`<span>${r.t}</span>`:""}${r.st?`<span class="status ${r.st.bad?"bad":"ok"}">${r.st.bad?"▲ ":"✓ "}${r.st.txt}</span>`:""}</div>
+        <div class="track" tabindex="0" data-tip="${r.tip||r.d+": "+r.lab}"><div class="bar" style="width:${Math.max(.4,w)}%"></div><span class="bval" style="left:${w}%">${r.lab}</span>${o.ref?`<div class="tol" style="left:${o.ref.at/o.max*100}%"></div>`:""}</div>`;
+      el.appendChild(row);});
+    axis(el,o);
+  }
+  /* stacked segments, total named in the label: rows {n,d,seg:[[v,cls,tip]]} */
+  function stack(el,rows,o){
+    rows.forEach(r=>{const row=document.createElement("div");row.className="hrow";let x=0,bars="";
+      r.seg.forEach(([v,c,t],i)=>{const left=x/o.max*100,w=v/o.max*100;
+        bars+=`<div class="bar ${c}" tabindex="0" data-tip="${t}" style="left:calc(${left}% + ${i?2:0}px);width:calc(${w}% - ${i?2:0}px);border-radius:${i===r.seg.length-1?"0 4px 4px 0":"0"}"></div>`;x+=v;});
+      row.innerHTML=`<div class="hlab"><b>${r.n}</b><span>${r.d}</span></div><div class="track">${bars}${o.ref?`<div class="tol" style="left:${o.ref.at/o.max*100}%"></div>`:""}</div>`;
+      el.appendChild(row);});
+    axis(el,o);
+  }
+  /* waterfall: rows {n,d,total} or {n,d,delta}; totals neutral, ups blue, downs orange */
+  function waterfall(el,rows,o){let run=0;
+    rows.forEach(r=>{const row=document.createElement("div");row.className="hrow";let bar,lab,tip;
+      if(r.total!==undefined){run=r.total;bar=`<div class="bar b3" style="width:${r.total/o.max*100}%"></div>`;lab=`<span class="bval" style="left:${r.total/o.max*100}%">${o.fmt(r.total)}</span>`;tip=`${r.n}: ${o.fmt(r.total)}`;}
+      else{const a=Math.min(run,run+r.delta),b=Math.max(run,run+r.delta);
+        bar=`<div class="bar ${r.delta<0?"b2":""}" style="left:${a/o.max*100}%;width:${(b-a)/o.max*100}%;border-radius:3px"></div>`;
+        lab=`<span class="bval" style="left:${b/o.max*100}%">${r.delta<0?"−":"+"}${o.fmt(Math.abs(r.delta))}</span>`;tip=`${r.n}: ${r.delta<0?"−":"+"}${o.fmt(Math.abs(r.delta))}`;run+=r.delta;}
+      row.innerHTML=`<div class="hlab"><b>${r.n}</b><span>${r.d}</span></div><div class="track" tabindex="0" data-tip="${tip}">${bar}${lab}</div>`;
+      el.appendChild(row);});
+    axis(el,o);
+  }
+
+  /* ---------- heat map you score ---------- */
+  function heatScorer(HM){
+    const band=s=>s>=20?5:s>=15?4:s>=9?3:s>=5?2:1;
+    const C=54,ox=84,oy=8,G=C*5,HW=ox+G+8,HH=oy+G+52;
+    const hs=svgEl("svg",{viewBox:`0 0 ${HW} ${HH}`,role:"img","aria-label":"Heat map"});
+    for(let X=1;X<=5;X++)for(let Y=1;Y<=5;Y++)
+      hs.appendChild(svgEl("rect",{x:ox+(X-1)*C+1,y:oy+(5-Y)*C+1,width:C-2,height:C-2,rx:3,fill:`var(--h${band(X*Y)})`}));
+    for(let k=1;k<=5;k++){
+      const t=svgEl("text",{x:ox+(k-.5)*C,y:oy+G+15,"text-anchor":"middle","font-size":"11",fill:"var(--fg-2)"});t.textContent=k;hs.appendChild(t);
+      if(HM.lx[k-1]){const t2=svgEl("text",{x:ox+(k-.5)*C,y:oy+G+28,"text-anchor":"middle","font-size":"9.5",fill:"var(--muted)"});t2.textContent=HM.lx[k-1];hs.appendChild(t2);}
+      const u=svgEl("text",{x:ox-8,y:oy+(5-k+.5)*C+4,"text-anchor":"end","font-size":"11",fill:"var(--fg-2)"});u.textContent=k;hs.appendChild(u);
+      if(HM.ly[k-1]){const u2=svgEl("text",{x:ox-20,y:oy+(5-k+.5)*C+4,"text-anchor":"end","font-size":"9.5",fill:"var(--muted)"});u2.textContent=HM.ly[k-1];hs.appendChild(u2);}
+    }
+    const xt=svgEl("text",{x:ox+G/2,y:oy+G+46,"text-anchor":"middle","font-size":"11","font-weight":"600",fill:"var(--fg)"});xt.textContent=HM.xName+" →";hs.appendChild(xt);
+    const yt=svgEl("text",{x:9,y:oy+G/2,"text-anchor":"middle","font-size":"11","font-weight":"600",fill:"var(--fg)",transform:`rotate(-90 9 ${oy+G/2})`});yt.textContent=HM.yName+" →";hs.appendChild(yt);
+    const dots=svgEl("g");hs.appendChild(dots);$("#heatmap").appendChild(hs);
+    const IT=HM.items,xn=HM.xName.toLowerCase(),yn=HM.yName.toLowerCase();
+    const opt=lab=>`<option value="">${lab}</option>`+[1,2,3,4,5].map(v=>`<option value="${v}">${v}</option>`).join("");
+    $("#scorer").innerHTML=IT.map(r=>`<li><span class="id">${r.id}</span><span class="nm">${r.n}</span><span class="pick"><select id="x-${r.id}" aria-label="${r.id} ${xn}, 1 to 5">${opt(HM.xs)}</select><select id="y-${r.id}" aria-label="${r.id} ${yn}, 1 to 5">${opt(HM.ys)}</select><span class="sc" id="s-${r.id}">–</span></span></li>`).join("");
+    const rank=(a,b)=>b.x*b.y-a.x*a.y||b.y-a.y;
+    $("#teamlist").innerHTML=[...IT].sort(rank).map(r=>`<li data-say="${r.id}. ${r.n}. ${HM.xName} ${r.x}, ${yn} ${r.y}, score ${r.x*r.y}. ${r.w}"><span class="id">${r.id}</span><span class="nm"><b>${r.n}</b><span class="w">${r.w}</span></span><span class="sc">${r.x}×${r.y} = ${r.x*r.y}</span></li>`).join("");
+    let mode="mine";
+    const mine=()=>IT.map(r=>({id:r.id,n:r.n,x:+$("#x-"+r.id).value,y:+$("#y-"+r.id).value})).filter(r=>r.x&&r.y);
+    const offsets=n=>n<=1?[[0,0]]:n===2?[[-12,0],[12,0]]:n<=4?[[-12,-11],[12,-11],[-12,11],[12,11]]:[[-15,-11],[0,-11],[15,-11],[-15,11],[0,11],[15,11]];
+    function plot(list){
+      while(dots.firstChild)dots.removeChild(dots.firstChild);
+      const cells={};list.forEach(r=>{const k=r.x+"-"+r.y;(cells[k]=cells[k]||[]).push(r);});
+      Object.values(cells).forEach(arr=>{const off=offsets(arr.length),big=arr.length===1,rad=big?14:arr.length<=4?10:8;
+        arr.forEach((r,j)=>{const cx=ox+(r.x-.5)*C+off[j][0],cy=oy+(5-r.y+.5)*C+off[j][1];
+          const g=svgEl("g",{tabindex:"0","data-tip":`${r.id} · ${r.n}: ${xn} ${r.x}, ${yn} ${r.y}, score ${r.x*r.y}`});
+          g.appendChild(svgEl("circle",{cx,cy,r:rad+2,fill:"var(--surface)"}));
+          g.appendChild(svgEl("circle",{cx,cy,r:rad,fill:"var(--dot)"}));
+          const t=svgEl("text",{x:cx,y:cy+(big?4:3),"text-anchor":"middle","font-size":big?"11":"8.5","font-weight":"600",fill:"var(--dot-ink)"});t.textContent=r.id;g.appendChild(t);
+          dots.appendChild(g);});});
+      hs.setAttribute("aria-label",`Heat map of ${xn} by ${yn}, ${mode==="team"?"team's scores":"your scores"}. `+(list.length?list.map(r=>`${r.id}: ${xn} ${r.x}, ${yn} ${r.y}`).join(". "):"Nothing scored yet."));
+    }
+    function render(){
+      const m=mine();
+      IT.forEach(r=>{const x=+$("#x-"+r.id).value,y=+$("#y-"+r.id).value;$("#s-"+r.id).textContent=x&&y?"= "+x*y:"–";});
+      const top=$("#mytop");
+      if(!m.length)top.textContent=`Score all ${IT.length} to see your top three.`;
+      else if(m.length<IT.length)top.textContent=`Scored ${m.length} of ${IT.length}. Score all ${IT.length} to see your top three.`;
+      else top.textContent="Your top three by score: "+[...m].sort(rank).slice(0,3).map(r=>`${r.id} (${r.x*r.y})`).join(", ")+".";
+      const note=$("#mapnote");
+      if(mode==="team"){plot(IT);note.textContent="Showing the team's scores. Switch back to compare with yours.";}
+      else{plot(m);note.textContent=m.length?"Showing your scores. Shared cells show dots side by side.":"Your dots appear here as you score each one.";}
+    }
+    function setMode(v){mode=v;$("#mMine").setAttribute("aria-pressed",String(v==="mine"));$("#mTeam").setAttribute("aria-pressed",String(v==="team"));render();}
+    $("#scorer").addEventListener("change",()=>{if(mode!=="mine")setMode("mine");else render();});
+    $("#mMine").addEventListener("click",()=>setMode("mine"));
+    $("#mTeam").addEventListener("click",()=>{if(!$("#mTeam").disabled)setMode("team");});
+    $("#rv-prio").addEventListener("click",()=>{$("#mTeam").disabled=false;setMode($("#a-prio").hidden?"mine":"team");});
+    render();
+  }
+
+  const PAGEKEY="summitvalley";
+  const fM=(v,sign)=>(v<0?"−":sign&&v>0?"+":"")+"$"+(Math.round(Math.abs(v)*10)/10).toFixed(1)+"M";
+  hbar($("#tenure"),[
+    {d:"Under 1 year",t:"198 of 400 nurses left",v:49.5,lab:"49.5%",st:{bad:true,txt:"Half leave"}},
+    {d:"1 to 3 years",t:"132 of 500 left",v:26.4,lab:"26.4%"},
+    {d:"3 to 10 years",t:"66 of 700 left",v:9.4,lab:"9.4%"},
+    {d:"Over 10 years",t:"44 of 400 left, many retiring",v:11,lab:"11.0%"},
+  ],{max:60,ticks:[0,10,20,30,40,50,60],tick:v=>v+"%"});
+
+  hbar($("#why"),[
+    {d:"Schedules and workload",t:"154 nurses",v:35,lab:"35%"},
+    {d:"Felt unprepared or unsupported",t:"110 nurses, mostly first-year",v:25,lab:"25%"},
+    {d:"Pay",t:"88 nurses",v:20,lab:"20%"},
+    {d:"Their manager",t:"66 nurses",v:15,lab:"15%"},
+    {d:"Moving, family, other",t:"22 nurses",v:5,lab:"5%"},
+  ],{max:40,ticks:[0,10,20,30,40],tick:v=>v+"%"});
+
+  hbar($("#cpk"),[
+    {d:"5% raise for all",t:"$9M ÷ 60 nurses",v:150,lab:"$150K",st:{bad:true,txt:"Costs more than an exit"}},
+    {d:"Retention bonus",t:"$1.5M ÷ 26 nurses",v:57.7,lab:"$58K",st:{bad:true,txt:"Costs more than an exit"}},
+    {d:"Manager training",t:"$1M ÷ 22 nurses",v:45.5,lab:"$45K",st:{bad:false,txt:"Pays for itself"}},
+    {d:"Flexible scheduling",t:"$1.5M ÷ 40 nurses",v:37.5,lab:"$37.5K",st:{bad:false,txt:"Pays for itself"}},
+    {d:"New-nurse residency",t:"$2M ÷ 66 nurses",v:30.3,lab:"$30K",st:{bad:false,txt:"Best value"}},
+  ],{max:200,ticks:[0,50,100,150,200],tick:v=>"$"+v+"K"});
+
+  /* Retention calculator */
+  const PR={raise:[9,60],res:[2,66],flex:[1.5,40],lead:[1,22],bonus:[1.5,26]},RCD={raise:"0",res:"1",flex:"1",lead:"1",bonus:"0",cost:50000,ovl:0},EXITS=440,RN=2000,BUD=5;
+  function rcCalc(){const g=k=>{const x=parseFloat($("#rc-"+k).value);return isNaN(x)?0:x;};
+    let cost=0,raw=0;Object.keys(PR).forEach(k=>{if($("#rc-"+k).value==="1"){cost+=PR[k][0];raw+=PR[k][1];}});
+    const kept=raw*(1-Math.min(100,Math.max(0,g("ovl")))/100),saved=kept*g("cost")/1e6,net=saved-cost,to=(EXITS-kept)/RN*100;
+    $("#rc-c").textContent=fM(cost);$("#rc-k").textContent=Math.round(kept);$("#rc-n").textContent=fM(net,true);$("#rc-t").textContent=to.toFixed(1)+"%";
+    if(!cost){$("#rc-note").textContent="Pick at least one program. Turnover stays at 22%.";return;}
+    const bud=cost<=BUD+1e-9?`Within the $5M budget, with ${fM(BUD-cost)} to spare.`:`Over the $5M budget by ${fM(cost-BUD)}.`;
+    const goal=to<16-1e-9?"Below the 16% goal.":`Misses the 16% goal: it needs about ${Math.floor(EXITS-RN*0.16-kept)+1} more nurses kept.`;
+    $("#rc-note").textContent=`${bud} ${goal} Cost per nurse kept: about $${Math.round(cost*1e3/Math.max(kept,1e-9))}K.`;}
+  ["raise","res","flex","lead","bonus","cost","ovl"].forEach(k=>{const el=$("#rc-"+k);el.addEventListener("input",rcCalc);el.addEventListener("change",rcCalc);});
+  $("#rc-reset").addEventListener("click",()=>{Object.keys(RCD).forEach(k=>$("#rc-"+k).value=RCD[k]);rcCalc();});
+  rcCalc();
+
+  heatScorer({xName:"Ease",yName:"Impact",xs:"E",ys:"I",lx:["Hard","","Medium","","Easy"],ly:["Small","","Medium","","Large"],items:[
+    {id:"A",n:"5% raise for all nurses",x:1,y:4,w:"Wide reach, but $9M is nearly twice the budget, and pay is already close to market."},
+    {id:"B",n:"New-nurse residency",x:3,y:5,w:"Aims at the biggest group of exits for the lowest cost per nurse kept. Needs mentors freed from shifts."},
+    {id:"C",n:"Flexible scheduling",x:3,y:4,w:"The top exit reason. Needs new software and nurse input, so pilot it first."},
+    {id:"D",n:"Nurse manager leadership training",x:4,y:3,w:"Cheap and fast, and it makes the others work: managers run schedules and coach new nurses."},
+    {id:"E",n:"Retention bonus for 1–3 year nurses",x:4,y:2,w:"Easy to pay, but it costs more per nurse kept than an exit, and the effect fades once it's paid."},
+    {id:"F",n:"Stay interviews and a turnover dashboard",x:5,y:2,w:"Nearly free early warning. It finds problems rather than fixing them."},
+  ]});
+
+  const TEST=[
+    {q:"What's the chief people officer's goal?",o:["Cut nurse pay","Turnover below 16% next year, for up to $5M a year","Hire 440 nurses","Close a hospital"],a:1,w:"A target and a budget: every option has to pass both."},
+    {q:"How many nurses leave each year now?",o:["220","280","440","2,000"],a:2,w:"22% × 2,000."},
+    {q:"What does turnover cost a year?",o:["$8M","$14M","$22M","$50M"],a:2,w:"440 exits × $50K."},
+    {q:"Each point of turnover is worth about…",o:["$100K","$1M","$5M","$20M"],a:1,w:"1% of 2,000 is 20 nurses × $50K."},
+    {q:"What share of exits come from nurses with under 3 years?",o:["25%","45%","75%","90%"],a:2,w:"330 of 440, from 45% of the staff."},
+    {q:"How many more nurses a year must stay to reach 16%?",o:["60","120","160","320"],a:1,w:"6 points × 20 nurses."},
+    {q:"Why isn't the 5% raise the best fix?",o:["Nurses don't care about pay","Pay drives only 20% of exits, pay is near market, and it costs $150K per nurse kept","It's illegal","It's too cheap"],a:1,w:"It costs three times what an exit does."},
+    {q:"What's the residency's cost per nurse kept?",o:["About $20K","About $30K","About $50K","About $66K"],a:1,w:"$2M ÷ 66 nurses."},
+    {q:"A program pays for itself when its cost per nurse kept is…",o:["Above $50K","Below the $50K cost of an exit","Exactly $5M","Under 16%"],a:1,w:"Each nurse kept saves about $50K."},
+    {q:"Residency, scheduling, and manager training together save…",o:["$4.5M","$6.4M, net +$1.9M","$9M","$22M"],a:1,w:"128 nurses kept × $50K, against a $4.5M cost."},
+    {q:"Where does turnover land with that package?",o:["14.0%","15.6%","16.4%","18.0%"],a:1,w:"(440 − 128) ÷ 2,000."},
+    {q:"Which is the strongest opening line for your recommendation?",o:["Nurses are unhappy.","Spend $4.5M on residency, scheduling, and manager training: it keeps 128 nurses and cuts turnover to about 15.6%.","Give everyone a raise.","Let me go back to the exhibits."],a:1,w:"Answer first, with the numbers, then the reasons."},
+  ];
+  const testq=$("#testq");
+  TEST.forEach((t,n)=>{const d=document.createElement("div");d.className="mc";d.dataset.answer=t.a;d.dataset.group="test";
+    d.innerHTML=`<div class="mc-head"><p class="stem" data-say="Question ${n+1}. ${t.q.replace(/"/g,"&quot;")}"><span class="qn">Q${n+1}</span>${t.q}</p><button class="btn small qlisten" type="button" aria-label="Listen to question ${n+1}">Listen</button></div>
+      <div class="opts">${t.o.map(o=>`<button class="opt" type="button" data-say="${o.replace(/"/g,"&quot;")}">${o}</button>`).join("")}</div>
+      <div class="why" hidden><p data-say="${t.w.replace(/"/g,"&quot;")}">${t.w}</p></div>`;
+    testq.appendChild(d);});
+
+  /* ---------- multiple choice engine ---------- */
+  function setupMC(mc){const opts=$$(".opt",mc);
+    opts.forEach((o,i)=>{if(!o.querySelector(".L")){const x=document.createElement("span");x.className="x";while(o.firstChild)x.appendChild(o.firstChild);
+        const L=document.createElement("span");L.className="L";L.textContent=LET[i];o.append(L,x);
+        o.dataset.say=LET[i]+". "+(o.dataset.say||x.textContent);}
+      o.addEventListener("click",()=>answer(mc,i));});}
+  function answer(mc,i){if(mc.dataset.done)return;mc.dataset.done="1";const a=+mc.dataset.answer,opts=$$(".opt",mc);
+    opts.forEach((o,k)=>{o.disabled=true;if(k===a){o.classList.add("right");o.insertAdjacentHTML("beforeend",`<span class="tag">✓ ${k===i?"Correct":"Answer"}</span>`);}
+      else if(k===i){o.classList.add("wrong");o.insertAdjacentHTML("beforeend",`<span class="tag">✕ Your pick</span>`);}});
+    mc.dataset.correct=String(i===a);$(".why",mc).hidden=false;if(mc.dataset.group==="test")score();}
+  function resetMC(mc){delete mc.dataset.done;delete mc.dataset.correct;$$(".opt",mc).forEach(o=>{o.disabled=false;o.classList.remove("right","wrong");const t=$(".tag",o);if(t)t.remove();});$(".why",mc).hidden=true;}
+  $$(".mc").forEach(setupMC);
+  function score(){const qs=$$('.mc[data-group="test"]'),done=qs.filter(q=>q.dataset.done),right=done.filter(q=>q.dataset.correct==="true").length;
+    $("#score").innerHTML=`${right} / ${done.length}<small>answered ${done.length} of ${qs.length}</small>`;
+    const box=$("#done");if(done.length===qs.length){box.hidden=false;
+      box.innerHTML=typeof DONE_MSG==="function"?DONE_MSG(right,qs.length):`<b>${right} of ${qs.length}.</b> `+(right>=11?"You're ready. Run the recommendation in step 09 out loud once more and get some sleep.":right>=8?"Solid. Re-read the explanations you missed, then run steps 04 and 09 out loud.":"Go back to the primer in step 01, then retake the test. The terms will stick on the second pass.");}
+    else box.hidden=true;}
+  $("#resetTest").addEventListener("click",()=>{$$('.mc[data-group="test"]').forEach(resetMC);score();$("#test").scrollIntoView();});
+  score();
+
+  /* ---------- read aloud, with a voice menu ---------- */
+  const synth=window.speechSynthesis,rateSel=$("#rate"),vSel=$("#voicePick");
+  try{const r=localStorage.getItem(PAGEKEY+"-rate");if(r)rateSel.value=r;}catch(e){}
+  rateSel.addEventListener("change",()=>{try{localStorage.setItem(PAGEKEY+"-rate",rateSel.value);}catch(e){}});
+  let speakingBtn=null,voice=null,voices=[];
+  const vrank=v=>(/natural|neural/i.test(v.name)?0:/premium/i.test(v.name)?1:/enhanced/i.test(v.name)?2:/google/i.test(v.name)?3:4)+(/^en[-_]US/i.test(v.lang)?0:.5);
+  function loadVoices(){
+    if(!synth)return;
+    voices=synth.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vrank(a)-vrank(b)||a.name.localeCompare(b.name));
+    if(!vSel)return;
+    let saved=null;try{saved=localStorage.getItem(PAGEKEY+"-voice");}catch(e){}
+    vSel.innerHTML=voices.length?voices.map((v,i)=>`<option value="${i}">${v.name.replace(/[<>&"]/g,"")}${vrank(v)<2?" (natural)":""}</option>`).join(""):'<option value="">Browser default</option>';
+    let idx=voices.findIndex(v=>v.name===saved);if(idx<0)idx=0;
+    if(voices.length)vSel.value=String(idx);voice=voices[idx]||null;
+  }
+  if(vSel)vSel.addEventListener("change",()=>{voice=voices[+vSel.value]||null;try{localStorage.setItem(PAGEKEY+"-voice",voice?voice.name:"");}catch(e){}});
+  loadVoices();
+  if(synth&&"onvoiceschanged" in synth)synth.addEventListener("voiceschanged",loadVoices);
+  function textOf(el){return(el.getAttribute("data-say")||el.innerText||"").replace(/\s+/g," ").trim();}
+  function visible(el){return!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length);}
+  function stop(){if(synth)synth.cancel();if(speakingBtn){speakingBtn.textContent=speakingBtn.dataset.label;speakingBtn.setAttribute("aria-pressed","false");speakingBtn=null;}}
+  function speakChunks(btn,chunks){
+    if(!synth||!chunks.length)return;
+    if(speakingBtn===btn){stop();return;}
+    stop();
+    speakingBtn=btn;btn.dataset.label=btn.dataset.label||btn.textContent;btn.textContent="Stop";btn.setAttribute("aria-pressed","true");
+    chunks.forEach((c,i)=>{const u=new SpeechSynthesisUtterance(c);u.rate=+rateSel.value;if(voice){u.voice=voice;u.lang=voice.lang;}else u.lang="en-US";
+      if(i===chunks.length-1)u.onend=()=>{if(speakingBtn===btn)stop();};synth.speak(u);});
+  }
+  function speak(btn,els){const chunks=[];els.filter(visible).forEach(el=>{textOf(el).split(/(?<=[.?!])\s+(?=[A-Z0-9"“])/).forEach(c=>{if(c)chunks.push(c);});});speakChunks(btn,chunks);}
+  if(!synth){$$(".listen,.qlisten").forEach(b=>b.hidden=true);$(".speed").hidden=true;const vb=$(".voicebar");if(vb)vb.hidden=true;}
+  else{
+    $$(".listen").forEach(b=>{b.dataset.label=b.textContent;b.addEventListener("click",()=>{const sec=b.closest("section");speak(b,$$("[data-say]",sec).filter(el=>!el.parentElement.closest("[data-say]")));});});
+    document.addEventListener("click",e=>{const b=e.target.closest(".qlisten");if(!b)return;const mc=b.closest(".mc");speak(b,$$("[data-say]",mc).filter(el=>!el.parentElement.closest("[data-say]")));});
+    const vt=$("#voiceTest");if(vt){vt.dataset.label=vt.textContent;vt.addEventListener("click",()=>speakChunks(vt,["Hi. This is how I'll read your case.","Pick another voice if this one sounds robotic."]));}
+  }
+  /* ---------- rail highlight ---------- */
+  const chips=$$("#chips a"),map=new Map(chips.map(a=>[a.getAttribute("href").slice(1),a]));
+  if("IntersectionObserver" in window){
+    const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){chips.forEach(c=>c.classList.remove("on"));const a=map.get(en.target.id);if(a){a.classList.add("on");const p=a.parentElement;p.scrollTo({left:a.offsetLeft-p.clientWidth/2+a.offsetWidth/2,behavior:"smooth"});}}});},{rootMargin:"-45% 0px -50% 0px"});
+    $$("section.step").forEach(s=>io.observe(s));
+  }
+})();
+</script>
+</body>
+<script src="tts.js"></script>
+<script src="chat.js"></script>
+<script src="glossary.js"></script>
+</html>
