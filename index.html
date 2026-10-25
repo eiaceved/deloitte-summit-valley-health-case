@@ -57,8 +57,6 @@ b,strong{font-weight:700}
 .chips a{font:500 12px var(--mono);padding:5px 9px;border-radius:999px;color:var(--fg-2);white-space:nowrap;text-decoration:none}
 .chips a:hover{background:var(--surface-2)}
 .chips a.on{background:var(--fg);color:var(--bg)}
-.speed{display:flex;align-items:center;gap:6px;font:500 11px var(--mono);color:var(--muted);flex:none}
-.speed select{font:500 12px var(--mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:3px 4px}
 
 /* hero */
 .hero{padding-block:56px 40px}
@@ -75,7 +73,6 @@ b,strong{font-weight:700}
 .sh{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .idx{font:600 13px var(--mono);color:var(--accent-ink)}
 .sh h2{font-size:clamp(26px,4.4vw,32px);line-height:1.15;font-weight:750}
-.sh .listen{margin-left:auto}
 .sub{color:var(--fg-2);margin-top:8px;max-width:40em}
 
 .btn{font:600 14px/1.2 var(--body);border-radius:8px;padding:9px 14px;border:1px solid var(--line);background:var(--surface);color:var(--fg);cursor:pointer;display:inline-flex;align-items:center;gap:7px;text-decoration:none}
@@ -282,7 +279,6 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
   .hrow,.axis{grid-template-columns:minmax(0,1fr)}
   .axis>div:first-child{display:none}
   .iv p{font-size:18px}
-  .speed span{display:none}
 }
 @media (max-width:420px){
   .branches{grid-template-columns:minmax(0,1fr)}
@@ -307,10 +303,6 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
 .mapnote{font:500 12px var(--mono);color:var(--fg-2);margin:8px 0 0}
 .bar.b3{background:var(--fg-2)}
 /* voice menu */
-.voicebar{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-top:22px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:var(--r)}
-.voicebar label{font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.voicebar select{flex:1 1 220px;min-width:0;max-width:100%;font:500 13px var(--mono);background:var(--surface);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 6px}
-.vhint{flex-basis:100%;margin:0;font-size:14px;line-height:1.45;color:var(--fg-2)}
 @media (max-width:600px){.given>div:last-child:nth-child(odd){grid-column:1/-1}}
 @media (max-width:420px){
   .scorer li{grid-template-columns:auto minmax(0,1fr)}
@@ -348,11 +340,7 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
     <div class="chips" id="chips">
       <a href="#primer">Primer</a><a href="#prompt">Prompt</a><a href="#clarify">Clarify</a><a href="#framework">Framework</a><a href="#ex1">Exhibit 1</a><a href="#ex2">Exhibit 2</a><a href="#sizing">Options</a><a href="#prioritize">Priorities</a><a href="#recommend">Recommend</a><a href="#drills">Drills</a><a href="#test">Test</a>
     </div>
-    <label class="speed" for="rate"><span>Speed</span>
-      <select id="rate" aria-label="Read-aloud speed">
-        <option value="0.9">0.9×</option><option value="1" selected>1×</option><option value="1.15">1.15×</option><option value="1.3">1.3×</option>
-      </select>
-    </label>
+    
   </div>
 </nav>
 
@@ -362,7 +350,7 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
   <h1>Summit Valley Health</h1>
   <p class="lede" data-say>A four-hospital system is losing nurses fast. Turnover has jumped from 14 to 22 percent in two years, and agency nurse bills are soaring. The chief people officer has 5 million dollars a year to fix it. Where should it go?</p>
   <ol class="how">
-    <li><b>Listen or read</b> the interviewer's prompt. Every step has a Listen button.</li>
+    <li><b>Read</b> the interviewer's prompt.</li>
     <li><b>Answer out loud</b> before you reveal anything. Use the timers.</li>
     <li><b>Compare</b> with the strong answer, then move to the next step.</li>
   </ol>
@@ -371,12 +359,7 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
     <a class="btn" href="#primer">2-minute Human Capital primer first</a>
     <a class="btn" href="#sizing">Jump to the options math</a>
   </div>
-  <div class="voicebar">
-    <label for="voicePick">Read-aloud voice</label>
-    <select id="voicePick"></select>
-    <button class="btn small" type="button" id="voiceTest">Try it</button>
-    <p class="vhint">Sounds robotic? Pick a voice marked "natural." For the most human voices, open this page in Microsoft Edge, which includes free natural voices. On a Mac, you can also download a Premium voice in System Settings › Accessibility › Spoken Content › System voice › Manage Voices.</p>
-  </div>
+  
 </header>
 
 <div class="wrap">
@@ -962,7 +945,7 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
   ];
   const testq=$("#testq");
   TEST.forEach((t,n)=>{const d=document.createElement("div");d.className="mc";d.dataset.answer=t.a;d.dataset.group="test";
-    d.innerHTML=`<div class="mc-head"><p class="stem" data-say="Question ${n+1}. ${t.q.replace(/"/g,"&quot;")}"><span class="qn">Q${n+1}</span>${t.q}</p><button class="btn small qlisten" type="button" aria-label="Listen to question ${n+1}">Listen</button></div>
+    d.innerHTML=`<div class="mc-head"><p class="stem" data-say="Question ${n+1}. ${t.q.replace(/"/g,"&quot;")}"><span class="qn">Q${n+1}</span>${t.q}</p></div>
       <div class="opts">${t.o.map(o=>`<button class="opt" type="button" data-say="${o.replace(/"/g,"&quot;")}">${o}</button>`).join("")}</div>
       <div class="why" hidden><p data-say="${t.w.replace(/"/g,"&quot;")}">${t.w}</p></div>`;
     testq.appendChild(d);});
@@ -987,42 +970,6 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
   $("#resetTest").addEventListener("click",()=>{$$('.mc[data-group="test"]').forEach(resetMC);score();$("#test").scrollIntoView();});
   score();
 
-  /* ---------- read aloud, with a voice menu ---------- */
-  const synth=window.speechSynthesis,rateSel=$("#rate"),vSel=$("#voicePick");
-  try{const r=localStorage.getItem(PAGEKEY+"-rate");if(r)rateSel.value=r;}catch(e){}
-  rateSel.addEventListener("change",()=>{try{localStorage.setItem(PAGEKEY+"-rate",rateSel.value);}catch(e){}});
-  let speakingBtn=null,voice=null,voices=[];
-  const vrank=v=>(/natural|neural/i.test(v.name)?0:/premium/i.test(v.name)?1:/enhanced/i.test(v.name)?2:/google/i.test(v.name)?3:4)+(/^en[-_]US/i.test(v.lang)?0:.5);
-  function loadVoices(){
-    if(!synth)return;
-    voices=synth.getVoices().filter(v=>/^en/i.test(v.lang)).sort((a,b)=>vrank(a)-vrank(b)||a.name.localeCompare(b.name));
-    if(!vSel)return;
-    let saved=null;try{saved=localStorage.getItem(PAGEKEY+"-voice");}catch(e){}
-    vSel.innerHTML=voices.length?voices.map((v,i)=>`<option value="${i}">${v.name.replace(/[<>&"]/g,"")}${vrank(v)<2?" (natural)":""}</option>`).join(""):'<option value="">Browser default</option>';
-    let idx=voices.findIndex(v=>v.name===saved);if(idx<0)idx=0;
-    if(voices.length)vSel.value=String(idx);voice=voices[idx]||null;
-  }
-  if(vSel)vSel.addEventListener("change",()=>{voice=voices[+vSel.value]||null;try{localStorage.setItem(PAGEKEY+"-voice",voice?voice.name:"");}catch(e){}});
-  loadVoices();
-  if(synth&&"onvoiceschanged" in synth)synth.addEventListener("voiceschanged",loadVoices);
-  function textOf(el){return(el.getAttribute("data-say")||el.innerText||"").replace(/\s+/g," ").trim();}
-  function visible(el){return!!(el.offsetWidth||el.offsetHeight||el.getClientRects().length);}
-  function stop(){if(synth)synth.cancel();if(speakingBtn){speakingBtn.textContent=speakingBtn.dataset.label;speakingBtn.setAttribute("aria-pressed","false");speakingBtn=null;}}
-  function speakChunks(btn,chunks){
-    if(!synth||!chunks.length)return;
-    if(speakingBtn===btn){stop();return;}
-    stop();
-    speakingBtn=btn;btn.dataset.label=btn.dataset.label||btn.textContent;btn.textContent="Stop";btn.setAttribute("aria-pressed","true");
-    chunks.forEach((c,i)=>{const u=new SpeechSynthesisUtterance(c);u.rate=+rateSel.value;if(voice){u.voice=voice;u.lang=voice.lang;}else u.lang="en-US";
-      if(i===chunks.length-1)u.onend=()=>{if(speakingBtn===btn)stop();};synth.speak(u);});
-  }
-  function speak(btn,els){const chunks=[];els.filter(visible).forEach(el=>{textOf(el).split(/(?<=[.?!])\s+(?=[A-Z0-9"“])/).forEach(c=>{if(c)chunks.push(c);});});speakChunks(btn,chunks);}
-  if(!synth){$$(".listen,.qlisten").forEach(b=>b.hidden=true);$(".speed").hidden=true;const vb=$(".voicebar");if(vb)vb.hidden=true;}
-  else{
-    $$(".listen").forEach(b=>{b.dataset.label=b.textContent;b.addEventListener("click",()=>{const sec=b.closest("section");speak(b,$$("[data-say]",sec).filter(el=>!el.parentElement.closest("[data-say]")));});});
-    document.addEventListener("click",e=>{const b=e.target.closest(".qlisten");if(!b)return;const mc=b.closest(".mc");speak(b,$$("[data-say]",mc).filter(el=>!el.parentElement.closest("[data-say]")));});
-    const vt=$("#voiceTest");if(vt){vt.dataset.label=vt.textContent;vt.addEventListener("click",()=>speakChunks(vt,["Hi. This is how I'll read your case.","Pick another voice if this one sounds robotic."]));}
-  }
   /* ---------- rail highlight ---------- */
   const chips=$$("#chips a"),map=new Map(chips.map(a=>[a.getAttribute("href").slice(1),a]));
   if("IntersectionObserver" in window){
@@ -1032,7 +979,6 @@ footer{padding-block:40px 64px;border-top:1px solid var(--line);font-size:14px;c
 })();
 </script>
 </body>
-<script src="tts.js"></script>
 <script src="chat.js"></script>
 <script src="glossary.js"></script>
 </html>
